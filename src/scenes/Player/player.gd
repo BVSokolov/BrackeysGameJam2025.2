@@ -1,24 +1,24 @@
-class_name Player extends Node2D
+class_name Player extends RigidBody2D
 
-@export var speed = 400
+@export var forcePower = 34000
 
-var screenSize
+# var screenSize
 
-func _ready() -> void:
-  screenSize = get_viewport_rect().size
+# func _ready() -> void:
+#   screenSize = get_viewport_rect().size
 
-func process_move(delta: float) -> void:
-  var velocity = Vector2.ZERO
+func process_move(dt: float) -> void:
+  # pass
+  var force = Vector2.ZERO
   if Input.is_action_pressed('ui_left'):
-    velocity.x -= 1
+    force.x -= 1
   if Input.is_action_pressed('ui_right'):
-    velocity.x += 1
+    force.x += 1
 
-  if velocity.length() > 0:
-    velocity = velocity.normalized() * speed
+  if force.length() > 0:
+    force = force.normalized() * forcePower
 
-  position += velocity * delta
-  position = position.clamp(Vector2.ZERO, screenSize)
+  apply_force(force * dt)
 
-func _process(delta: float) -> void:
-  process_move(delta)
+func _process(dt: float) -> void:
+  process_move(dt)

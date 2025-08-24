@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="1_iix1u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6l6y"]
-size = Vector2(1032, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iix1u"]
 
 [node name="BounceGreyBox" type="Node2D"]
 
@@ -26,12 +25,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.597176, 0.597176, 0.597176, 1)
 
-[node name="Area2D" type="Area2D" parent="Control"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Control"]
+position = Vector2(516, 12)
+scale = Vector2(51.92, 1)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Area2D"]
-position = Vector2(516, 3)
-shape = SubResource("RectangleShape2D_u6l6y")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/StaticBody2D"]
+shape = SubResource("RectangleShape2D_iix1u")
 
 [node name="Player" parent="." instance=ExtResource("1_iix1u")]
-position = Vector2(56, -93)
+position = Vector2(56, -276)
