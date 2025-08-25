@@ -36,7 +36,6 @@ func _ready() -> void:
   add_child(collisionStaticBody)
   collisionPolygon2d = CollisionPolygon2D.new()
   collisionStaticBody.add_child(collisionPolygon2d)
-  texture_filter = textureFilter
   _generate_terrain()
 
 func _process(dt: float) -> void:
@@ -60,22 +59,21 @@ func _generate_terrain():
   # Workaround you effectively cannot join the start and endpoints of aline
   # Instead overlapp the line where the joining would have occured
   if points.size() > 1:
-    points.append(points[1])
+    points.append(points[0])
   
   polygon2d.polygon = points
   polygon2d.texture = centerTexture
+  polygon2d.texture_filter = textureFilter
   
   line2d.points = points
   line2d.texture = edgeTexture
+  line2d.texture_filter = textureFilter
   
   # In order to have a valid collider we need more than 2 points
   if colliderPoints.size() > 2:
     collisionPolygon2d.polygon = colliderPoints
-  
   collisionPolygon2d.visible = visibleCollision
   
-    
-
-  
-  
+  if Engine.is_editor_hint():
+    collisionPolygon2d.visible = visibleCollision
   
