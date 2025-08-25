@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpd2j578iktd1"]
+
+[ext_resource type="Script" uid="uid://brjaseygmtsb3" path="res://src/scenes/CurvedTerrainNode/curved_terrain_node.gd" id="1_lhlur"]
+
+[sub_resource type="Curve2D" id="Curve2D_1vdo5"]
+
+[node name="CurvedTerrainNode" type="Path2D"]
+curve = SubResource("Curve2D_1vdo5")
+script = ExtResource("1_lhlur")
