@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lcts66k4u6q4"]
+[gd_scene load_steps=5 format=3 uid="uid://lcts66k4u6q4"]
 
 [ext_resource type="Script" uid="uid://lol0mrq6q1yw" path="res://src/scenes/Player/player.gd" id="1_41myv"]
 [ext_resource type="Texture2D" uid="uid://dqkk6tcxv4e6r" path="res://src/assets/images/biscuit.png" id="2_v14g5"]
@@ -6,17 +6,37 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7x01q"]
 radius = 31.0161
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_41myv"]
+radius = 14.0
+height = 50.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="RigidBody2D" parent="."]
 collision_mask = 2
 script = ExtResource("1_41myv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_7x01q")
-
-[node name="Player" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v14g5")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Area2D")
+update_rotation = false
+update_scale = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 21)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_41myv")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
