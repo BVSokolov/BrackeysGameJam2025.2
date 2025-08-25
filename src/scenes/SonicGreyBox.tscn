@@ -1,3 +1,84 @@
-[gd_scene format=3 uid="uid://i0rolxiohydi"]
+[gd_scene load_steps=8 format=3 uid="uid://i0rolxiohydi"]
+
+[ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="1_0onui"]
+[ext_resource type="Script" uid="uid://brjaseygmtsb3" path="res://src/scenes/CurvedTerrainNode/curved_terrain_node.gd" id="2_o41vh"]
+[ext_resource type="Texture2D" uid="uid://bcwyuxh2xdpc2" path="res://src/assets/images/test-level-edge.svg" id="3_qi24e"]
+[ext_resource type="Texture2D" uid="uid://d05hkdbwq03n3" path="res://src/assets/images/test-level-terrain.svg" id="4_0vvis"]
+
+[sub_resource type="Curve2D" id="Curve2D_vt2wj"]
+bake_interval = 24.44
+_data = {
+"points": PackedVector2Array(-7.78123, -70.0311, 7.78123, 70.0311, 184, 186, -46.9525, -5.18749, 46.9525, 5.18749, 432.198, 159, -47.5517, -106.707, 47.5517, 106.707, 803.408, 398, 25.1727, 7.595, -25.1727, -7.595, 659.47, 966, 0, 0, 0, 0, 336.555, 808, 114.125, 70.0311, -114.125, -70.0311, -104, 211, -29.4742, -25.9374, 29.4742, 25.9374, -179.168, 63.3679, -142.656, -101.156, 142.656, 101.156, -47, 50, -41.7551, -75.2186, 41.7551, 75.2186, 184, 186)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_qi24e"]
+bake_interval = 30.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1555, 146, 0, 0, 0, 0, 1737, 222, 0, 0, 0, 0, 1831, 354, 0, 0, 0, 0, 1844, 441, 0, 0, 0, 0, 1740, 683, 0, 0, 0, 0, 1574, 925, -182.28, -72.1525, 182.28, 72.1525, 1618, 1107, -163.198, -28.2459, 163.198, 28.2459, 2321, 1038, -15.6921, 109.845, 15.6921, -109.845, 2873, 683, -106.707, 21.969, 106.707, -21.969, 3124, 394, -12.5537, 84.7376, 12.5537, -84.7376, 3137, 37, 18.8306, 47.0764, -18.8306, -47.0764, 2826, -145, 150.645, 59.6302, -150.645, -59.6302, 1938, -265, 25.1074, -34.5227, -25.1074, 34.5227, 1471, -362, 0, 0, 0, 0, 1555, 146)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_0vvis"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector2Array(-100.43, 40.7996, 100.43, -40.7996, -305, 879, -78.4607, -94.1529, 78.4607, 94.1529, 572, 1285, -84.7376, 6.27686, 84.7376, -6.27686, 887, 1040, -100.43, -84.7376, 100.43, 84.7376, 1430, 1059, 178.89, -119.26, -178.89, 119.26, 1590, 1639, 134.952, 34.5227, -134.952, -34.5227, 93, 1733, -229.105, 100.43, 229.105, -100.43, -434, 963)
+}
+point_count = 7
 
 [node name="SonicGreyBox" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0onui")]
+position = Vector2(56, -276)
+
+[node name="CurvedTerrainNode" type="Path2D" parent="."]
+texture_filter = 2
+position = Vector2(-30, -38)
+scale = Vector2(2.11201, 1)
+curve = SubResource("Curve2D_vt2wj")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+metadata/_edit_group_ = true
+
+[node name="CurvedTerrainNode2" type="Path2D" parent="."]
+texture_filter = 2
+position = Vector2(79, -25)
+curve = SubResource("Curve2D_qi24e")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+metadata/_edit_group_ = true
+
+[node name="CurvedTerrainNode3" type="Path2D" parent="."]
+texture_filter = 2
+position = Vector2(-23, 61)
+curve = SubResource("Curve2D_0vvis")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+
+[node name="CurvedTerrainNode4" type="Path2D" parent="."]
+texture_filter = 2
+position = Vector2(211, 1708)
+curve = SubResource("Curve2D_qi24e")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+metadata/_edit_group_ = true
