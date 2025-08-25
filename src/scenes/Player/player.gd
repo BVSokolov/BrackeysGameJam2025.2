@@ -25,7 +25,7 @@ func process_move(_dt: float) -> void:
     apply_torque(forceDirX * torqePower)
     if !onGround:
       var inAirForce = Vector2(forceDirX, 0.5)
-      # apply_force(inAirForce.normalized() * forcePower)
+      # apply_force(inAirForce.normalized() * forcePower) //allows in air movement
     
 func _physics_process(dt: float) -> void:
   process_move(dt)

@@ -7,7 +7,7 @@
 radius = 31.0161
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_41myv"]
-radius = 11.0
+radius = 14.0
 height = 50.0
 
 [node name="Node2D" type="Node2D"]
@@ -31,7 +31,6 @@ update_rotation = false
 update_scale = false
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 4)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
