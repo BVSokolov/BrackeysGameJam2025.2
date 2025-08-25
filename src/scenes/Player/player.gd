@@ -11,7 +11,7 @@ func process_move(dt: float) -> void:
   # pass
   var force = Vector2.ZERO
   if Input.is_action_pressed('ui_left'):
-      force.x -= 1
+    force.x -= 1
   if Input.is_action_pressed('ui_right'):
     force.x += 1
 
