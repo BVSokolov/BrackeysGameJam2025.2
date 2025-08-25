@@ -1,37 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxw4olre0jvfk"]
+[gd_scene load_steps=7 format=4 uid="uid://dxw4olre0jvfk"]
 
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="1_iix1u"]
+[ext_resource type="Texture2D" uid="uid://r50c0mdsxu6p" path="res://src/assets/images/test-level-tilemap.svg" id="2_t0xf3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iix1u"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t0xf3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y60yr"]
+friction = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0xf3"]
+texture = ExtResource("2_t0xf3")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0 = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_3jv21"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_t0xf3")
+physics_layer_1/collision_layer = 2
+physics_layer_1/physics_material = SubResource("PhysicsMaterial_y60yr")
+sources/1 = SubResource("TileSetAtlasSource_t0xf3")
 
 [node name="BounceGreyBox" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 115.0
-offset_bottom = 40.0
-size_flags_horizontal = 4
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 920.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.597176, 0.597176, 0.597176, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Control"]
-position = Vector2(516, 12)
-scale = Vector2(51.92, 1)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/StaticBody2D"]
-shape = SubResource("RectangleShape2D_iix1u")
-
 [node name="Player" parent="." instance=ExtResource("1_iix1u")]
 position = Vector2(56, -276)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(15, 0)
+tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQACAAAAAAALAP//AQACAAAAAAAMAP//AQACAAAAAAANAP//AQACAAAAAAAOAP//AQACAAAAAAAPAP//AQACAAAAAAAQAP//AQACAAAAAAARAP//AQACAAAAAAASAP//AQACAAAAAAATAP//AQACAAAAAAAUAP//AQACAAAAAAAVAP//AQACAAAAAAAWAP//AQACAAAAAAAXAP//AQACAAAAAAAYAP//AQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAbAP//AQAAAAAAAAAcAP//AQAAAAAAAAAdAP//AQAAAAAAAAAeAP//AQAAAAAAAAAfAP7/AQAAAAAAAAAgAP7/AQAAAAAAAAAhAP7/AQAAAAAAAAAiAP//AQAAAAAAAAAjAP//AQAAAAAAAAAkAP//AQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAD9////AQAAAAAAAAD8////AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_3jv21")

@@ -8,17 +8,17 @@ class_name Player extends RigidBody2D
 #   screenSize = get_viewport_rect().size
 
 func process_move(dt: float) -> void:
-  # pass
-  var force = Vector2.ZERO
-  if Input.is_action_pressed('ui_left'):
-    force.x -= 1
-  if Input.is_action_pressed('ui_right'):
-    force.x += 1
+		# pass
+		var force = Vector2.ZERO
+		if Input.is_action_pressed('ui_left'):
+				force.x -= 1
+		if Input.is_action_pressed('ui_right'):
+				force.x += 1
 
-  if force.length() > 0:
-    force = force.normalized() * forcePower
+		if force.length() > 0:
+				force = force.normalized() * forcePower
 
-  apply_force(force * dt)
-  
+		apply_force(force * dt)
+		
 func _physics_process(dt: float) -> void:
-  process_move(dt)
+		process_move(dt)
