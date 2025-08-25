@@ -19,6 +19,6 @@ func process_move(dt: float) -> void:
     force = force.normalized() * forcePower
 
   apply_force(force * dt)
-
-func _process(dt: float) -> void:
+  
+func _physics_process(dt: float) -> void:
   process_move(dt)
