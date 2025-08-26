@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://gbxwj2f7pmon"]
+
+[ext_resource type="Texture2D" uid="uid://r50c0mdsxu6p" path="res://src/assets/images/test-level-tilemap.svg" id="1_3xm6f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t0xf3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y60yr"]
+friction = 0.25
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0xf3"]
+texture = ExtResource("1_3xm6f")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_t0xf3")
+physics_layer_1/collision_layer = 2
+physics_layer_1/physics_material = SubResource("PhysicsMaterial_y60yr")
+sources/1 = SubResource("TileSetAtlasSource_t0xf3")
