@@ -43,6 +43,7 @@ func _on_start_button_pressed() -> void:
 
 func game_won():
   $Player.game_won()
+  $Player.hide()
   $GameWonHUD.show()
   $StartButton.hide()
   $Camera2D.make_current()

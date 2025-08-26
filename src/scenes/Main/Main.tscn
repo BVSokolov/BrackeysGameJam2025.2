@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://n8tvkj6sdd3i"]
+[gd_scene load_steps=9 format=3 uid="uid://n8tvkj6sdd3i"]
 
 [ext_resource type="Script" uid="uid://ctab5fbwy13io" path="res://src/scenes/Main/main.gd" id="1_mqhj8"]
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="2_3ioa8"]
 [ext_resource type="PackedScene" uid="uid://tux8olgr24hu" path="res://src/scenes/Level_1/Level_1.tscn" id="3_2avcn"]
 [ext_resource type="PackedScene" uid="uid://dii3527gneijh" path="res://src/scenes/Level_0/Level_0.tscn" id="3_5llug"]
+[ext_resource type="PackedScene" uid="uid://bk16o0khk06st" path="res://src/scenes/Level_2/Level_2.tscn" id="4_4lipg"]
 [ext_resource type="PackedScene" uid="uid://cal3ft25jnj8w" path="res://src/scenes/HUD/GameWon/GameWonHud.tscn" id="5_bb7lw"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_5llug"]
@@ -14,7 +15,7 @@ events = [SubResource("InputEventAction_5llug")]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mqhj8")
-levels = Array[PackedScene]([ExtResource("3_5llug"), ExtResource("3_2avcn")])
+levels = Array[PackedScene]([ExtResource("3_5llug"), ExtResource("3_2avcn"), ExtResource("4_4lipg")])
 
 [node name="Player" parent="." instance=ExtResource("2_3ioa8")]
 
