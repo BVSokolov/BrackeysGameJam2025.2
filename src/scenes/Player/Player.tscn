@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://lcts66k4u6q4"]
+[gd_scene load_steps=11 format=3 uid="uid://lcts66k4u6q4"]
 
 [ext_resource type="Script" uid="uid://lol0mrq6q1yw" path="res://src/scenes/Player/player.gd" id="1_41myv"]
 [ext_resource type="Script" uid="uid://dfsl5t28vlk1k" path="res://src/scenes/Player/playerRoot.gd" id="1_yifjk"]
 [ext_resource type="Texture2D" uid="uid://dqkk6tcxv4e6r" path="res://src/assets/images/biscuit.png" id="2_v14g5"]
 [ext_resource type="Texture2D" uid="uid://c2ihex1h1hdyj" path="res://src/assets/images/hand_of_death.png" id="3_dct3b"]
+[ext_resource type="PackedScene" uid="uid://cwg86q7vc7tmt" path="res://src/scenes/HUD/LevelTimers/LevelTimers.tscn" id="4_i1tti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7x01q"]
 radius = 31.0161
@@ -87,6 +88,9 @@ shape = SubResource("CircleShape2D_7x01q")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v14g5")
 
+[node name="UI" type="CanvasLayer" parent="RigidBody2D"]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
 
 [node name="HoDRemoteTransform2D" type="RemoteTransform2D" parent="RigidBody2D/Camera2D"]
@@ -106,6 +110,18 @@ collision_mask = 2
 position = Vector2(0, 25)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_41myv")
+
+[node name="LevelTimers" parent="Area2D" instance=ExtResource("4_i1tti")]
+z_index = 100
+anchors_preset = -1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -546.0
+offset_top = -321.0
+offset_right = 578.0
+offset_bottom = 321.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="HoDSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

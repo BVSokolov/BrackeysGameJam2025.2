@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvj6rg2o084nn"]
+
+[ext_resource type="Texture2D" uid="uid://b0e5ewl7vc8dr" path="res://src/assets/images/participation_trophy.png" id="1_cy73q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wvbt"]
+
+[node name="LevelTimeTrophyGoal" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_cy73q")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "<trophy_time>"
+label_settings = SubResource("LabelSettings_1wvbt")

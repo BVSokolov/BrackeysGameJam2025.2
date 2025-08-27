@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://6rapu0febxq5"]
+
+[ext_resource type="Script" uid="uid://oj7wj5pif2e8" path="res://src/scenes/HUD/LevelComplete/LevelComplete.gd" id="1_0lwju"]
+[ext_resource type="Texture2D" uid="uid://b0e5ewl7vc8dr" path="res://src/assets/images/participation_trophy.png" id="1_40d2i"]
+[ext_resource type="Texture2D" uid="uid://cnjebeuw6or4q" path="res://src/assets/images/gold_trophy.png" id="2_4afdk"]
+[ext_resource type="Texture2D" uid="uid://p5m6hbpexiqr" path="res://src/assets/images/silver_trophy.png" id="3_vuqps"]
+[ext_resource type="Texture2D" uid="uid://xriapwhq0t8h" path="res://src/assets/images/bronze_trophy.png" id="4_jx8xd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lwju"]
+bg_color = Color(0, 0, 0, 0.0784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caisy"]
+bg_color = Color(0.161382, 0.704057, 0.475644, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3d5ne"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_og3qj"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lwju"]
+font_size = 24
+font_color = Color(0.980544, 0.973036, 0, 1)
+
+[node name="LevelComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0lwju")
+gold_trophy = ExtResource("2_4afdk")
+silver_trophy = ExtResource("3_vuqps")
+bronze_trophy = ExtResource("4_jx8xd")
+participation_trophy = ExtResource("1_40d2i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0lwju")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 120
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_caisy")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "level complete"
+label_settings = SubResource("LabelSettings_3d5ne")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "You earned a"
+label_settings = SubResource("LabelSettings_og3qj")
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "participation trophy"
+label_settings = SubResource("LabelSettings_0lwju")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_40d2i")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button2" to="." method="_on_continue_button_pressed"]
