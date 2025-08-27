@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://n8tvkj6sdd3i"]
+[gd_scene load_steps=14 format=3 uid="uid://n8tvkj6sdd3i"]
 
 [ext_resource type="Script" uid="uid://ctab5fbwy13io" path="res://src/scenes/Main/main.gd" id="1_mqhj8"]
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="2_3ioa8"]
 [ext_resource type="Script" uid="uid://d03ckdfnx2ux5" path="res://src/scripts/level/LevelInfo.gd" id="2_bb7lw"]
 [ext_resource type="PackedScene" uid="uid://dii3527gneijh" path="res://src/scenes/Level_0/Level_0.tscn" id="3_5llug"]
+[ext_resource type="PackedScene" uid="uid://tux8olgr24hu" path="res://src/scenes/Level_1/Level_1.tscn" id="4_s1rgc"]
 [ext_resource type="PackedScene" uid="uid://cal3ft25jnj8w" path="res://src/scenes/HUD/GameWon/GameWonHud.tscn" id="5_bb7lw"]
+[ext_resource type="PackedScene" uid="uid://bk16o0khk06st" path="res://src/scenes/Level_2/Level_2.tscn" id="5_kl3ao"]
 [ext_resource type="PackedScene" uid="uid://6rapu0febxq5" path="res://src/scenes/HUD/LevelComplete/LevelComplete.tscn" id="6_4lipg"]
 
 [sub_resource type="Resource" id="Resource_4lipg"]
@@ -16,6 +18,24 @@ trophyTime_bronze = 14.871
 resource = ExtResource("3_5llug")
 metadata/_custom_type_script = "uid://d03ckdfnx2ux5"
 
+[sub_resource type="Resource" id="Resource_aywe8"]
+script = ExtResource("2_bb7lw")
+levelName = &"Level_1"
+trophyTime_gold = 20.0
+trophyTime_silver = 30.0
+trophyTime_bronze = 40.0
+resource = ExtResource("4_s1rgc")
+metadata/_custom_type_script = "uid://d03ckdfnx2ux5"
+
+[sub_resource type="Resource" id="Resource_mkmfn"]
+script = ExtResource("2_bb7lw")
+levelName = &"Level_2"
+trophyTime_gold = 40.0
+trophyTime_silver = 60.0
+trophyTime_bronze = 110.0
+resource = ExtResource("5_kl3ao")
+metadata/_custom_type_script = "uid://d03ckdfnx2ux5"
+
 [sub_resource type="InputEventAction" id="InputEventAction_5llug"]
 action = &"ui_accept"
 
@@ -24,7 +44,7 @@ events = [SubResource("InputEventAction_5llug")]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mqhj8")
-levels = Array[ExtResource("2_bb7lw")]([SubResource("Resource_4lipg")])
+levels = Array[ExtResource("2_bb7lw")]([SubResource("Resource_4lipg"), SubResource("Resource_aywe8"), SubResource("Resource_mkmfn")])
 
 [node name="Player" parent="." instance=ExtResource("2_3ioa8")]
 
