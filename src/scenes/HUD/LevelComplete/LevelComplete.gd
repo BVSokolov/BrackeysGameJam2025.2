@@ -6,7 +6,8 @@ signal retry_button_pressed
 @export var gold_trophy: CompressedTexture2D
 @export var silver_trophy: CompressedTexture2D
 @export var bronze_trophy: CompressedTexture2D
-@export var participation_trophy: CompressedTexture2D
+@export var participation_trophy_: CompressedTexture2D # whenever i rename this variable to be without the trailing underscore the texture REFUSES to be rendered on screen...idk man...
+
 const participation_text = 'participation trophy'
 
 var gold_time: float
@@ -21,7 +22,7 @@ func set_level_goal_times(gold: float, silver: float, bronze: float):
 
 func show_level_complete(level_time: float):
   var trophy_data = [ {resource = gold_trophy, goal_time = gold_time, name = 'gold trophy'}, {resource = silver_trophy, goal_time = silver_time, name = 'silver trophy'}, {resource = bronze_trophy, goal_time = bronze_time, name = 'bronze trophy'}]
-  var resource = participation_trophy
+  var resource = participation_trophy_
   var text = participation_text
   
   for data in trophy_data:

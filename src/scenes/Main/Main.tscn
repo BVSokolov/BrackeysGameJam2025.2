@@ -66,7 +66,6 @@ anchor_mode = 0
 [node name="GameWonHUD" parent="Camera2D/UI" instance=ExtResource("5_bb7lw")]
 
 [node name="LevelComplete" parent="Camera2D/UI" instance=ExtResource("6_4lipg")]
-participation_trophy = null
 
 [connection signal="player_death_animation_finished" from="Player" to="." method="_on_player_death_animation_finished"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

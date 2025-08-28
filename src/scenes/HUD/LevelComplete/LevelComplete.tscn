@@ -33,7 +33,7 @@ script = ExtResource("1_0lwju")
 gold_trophy = ExtResource("2_4afdk")
 silver_trophy = ExtResource("3_vuqps")
 bronze_trophy = ExtResource("4_jx8xd")
-participation_trophy = ExtResource("1_40d2i")
+participation_trophy_ = ExtResource("1_40d2i")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
