@@ -34,6 +34,7 @@ func load_level():
   reset_player(true)
   $StartButton.set("disabled", false)
 
+  total_time = 0.0
   level_timer = 0.0
   $Player.init_level_timers(levelInfo.trophyTime_gold, levelInfo.trophyTime_silver, levelInfo.trophyTime_bronze)
   start_button_pressed = false
@@ -71,7 +72,7 @@ func _on_start_button_pressed() -> void:
 func game_won():
   $Player.game_won()
   $Player.hide()
-  $Camera2D/UI/GameWonHUD.show()
+  $Camera2D/UI/GameWonHUD.show_game_won(total_time)
   $StartButton.hide()
   $Camera2D.make_current()
 
@@ -80,6 +81,7 @@ func _on_level_complete():
   level_is_completed = true
   # show level complete ui
   $Camera2D/UI/LevelComplete.show_level_complete(level_timer)
+  total_time += level_timer
 
 func _on_level_complete_retry_button_pressed() -> void:
   $Camera2D/UI/LevelComplete.hide()
