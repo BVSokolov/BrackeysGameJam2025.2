@@ -3,7 +3,7 @@ class_name Player extends RigidBody2D
 @export var torqePower = 35000
 @export var forcePower = 1000
 @export var jumpForcePower = 500
-var onGround = true
+var groundCollider: Area2D
 
 # var screenSize
 
@@ -18,7 +18,7 @@ func process_move(_dt: float) -> void:
   if Input.is_action_pressed('ui_right'):
     forceDirX += 1
 
-  if Input.is_action_just_pressed('jump') && onGround:
+  if Input.is_action_just_pressed('jump') && groundCollider.has_overlapping_bodies():
     apply_impulse(Vector2(0, -jumpForcePower))
     
   if forceDirX != 0:
@@ -29,12 +29,6 @@ func process_move(_dt: float) -> void:
     
 func _physics_process(dt: float) -> void:
   process_move(dt)
-
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-  onGround = true
-
-func _on_area_2d_body_exited(_body: Node2D) -> void:
-  onGround = false
 
 func level_init(pos: Vector2):
   set_deferred('freeze', true)

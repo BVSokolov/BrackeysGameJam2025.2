@@ -6,6 +6,7 @@ signal player_death_animation_finished
 
 func _ready() -> void:
   player = $RigidBody2D
+  player.groundCollider = $Area2D
 
 func level_init(pos: Vector2):
   player.level_init(pos)
