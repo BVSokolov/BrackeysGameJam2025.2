@@ -26,14 +26,13 @@ func show_level_complete(level_time: float):
   var text = participation_text
   
   for data in trophy_data:
-    print(data.resource, data.goal_time)
     if level_time < data.goal_time:
       resource = data.resource
       text = data.name
       $Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button2.show()
       break
-  $Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/TextureRect.texture = resource
-  $Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Label2.text = text
+  $Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/TextureRect.texture = resource
+  $Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label2.text = text
   show()
 
 
