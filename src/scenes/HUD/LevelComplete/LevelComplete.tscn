@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6rapu0febxq5"]
+[gd_scene load_steps=15 format=3 uid="uid://6rapu0febxq5"]
 
 [ext_resource type="Script" uid="uid://oj7wj5pif2e8" path="res://src/scenes/HUD/LevelComplete/LevelComplete.gd" id="1_0lwju"]
 [ext_resource type="Texture2D" uid="uid://b0e5ewl7vc8dr" path="res://src/assets/images/participation_trophy.png" id="1_40d2i"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xriapwhq0t8h" path="res://src/assets/images/bronze_trophy.png" id="4_jx8xd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lwju"]
-bg_color = Color(0, 0, 0, 0.0784314)
+bg_color = Color(0, 0, 0, 0.235294)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caisy"]
 bg_color = Color(0.161382, 0.704057, 0.475644, 1)
@@ -21,6 +21,18 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_0lwju"]
 font_size = 24
 font_color = Color(0.980544, 0.973036, 0, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_0lwju"]
+action = &"ui_select"
+
+[sub_resource type="Shortcut" id="Shortcut_4afdk"]
+events = [SubResource("InputEventAction_0lwju")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_vuqps"]
+action = &"ui_accept"
+
+[sub_resource type="Shortcut" id="Shortcut_jx8xd"]
+events = [SubResource("InputEventAction_vuqps")]
 
 [node name="LevelComplete" type="Control"]
 layout_mode = 3
@@ -74,6 +86,8 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -83,22 +97,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "You earned a"
 label_settings = SubResource("LabelSettings_og3qj")
 
-[node name="Label2" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "participation trophy"
 label_settings = SubResource("LabelSettings_0lwju")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -119,11 +138,13 @@ alignment = 1
 
 [node name="Button" type="Button" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Retry"
+shortcut = SubResource("Shortcut_4afdk")
+text = "RETRY [SPACE]"
 
 [node name="Button2" type="Button" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Continue"
+shortcut = SubResource("Shortcut_jx8xd")
+text = "CONTINUE [ENTER]"
 
 [connection signal="pressed" from="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button2" to="." method="_on_continue_button_pressed"]

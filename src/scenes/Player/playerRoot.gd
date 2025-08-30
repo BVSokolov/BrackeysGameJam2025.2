@@ -22,8 +22,11 @@ func kill_player():
 func game_won():
   player.game_won()
 
-func init_level_timers(gold: float, silver: float, bronze: float):
+func reset_level_timer():
   update_timer(0)
+
+func init_level_timers(gold: float, silver: float, bronze: float):
+  reset_level_timer()
   $Area2D/LevelTimers.set_time_goals(gold, silver, bronze)
 
 func update_timer(time: float):

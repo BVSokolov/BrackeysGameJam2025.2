@@ -1,6 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cal3ft25jnj8w"]
+[gd_scene load_steps=9 format=3 uid="uid://cal3ft25jnj8w"]
 
 [ext_resource type="Script" uid="uid://ohy18py1nm5a" path="res://src/scenes/HUD/GameWon/gameWonHud.gd" id="1_rjbwr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjbwr"]
+bg_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4ka5"]
+bg_color = Color(0.807306, 0.639883, 0.281521, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q4ka5"]
 font_size = 48
@@ -26,52 +32,79 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rjbwr")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -17.5
-offset_right = 4.0
-offset_bottom = 17.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjbwr")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 240
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 240
+theme_override_constants/margin_bottom = 120
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q4ka5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Game Won!"
 label_settings = SubResource("LabelSettings_q4ka5")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Your time is"
 label_settings = SubResource("LabelSettings_rjbwr")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "<total_time>"
 label_settings = SubResource("LabelSettings_rxwnp")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-button_mask = 0
 shortcut = SubResource("Shortcut_roh6a")
-text = "Press Enter to play again"
+text = "PLAY AGAIN [ENTER]"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Button" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_new_game_pressed"]
