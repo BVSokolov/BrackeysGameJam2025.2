@@ -20,6 +20,13 @@ func kill_player():
 func game_won():
   player.game_won()
 
+func init_level_timers(gold: float, silver: float, bronze: float):
+  update_timer(0)
+  $Area2D/LevelTimers.set_time_goals(gold, silver, bronze)
+
+func update_timer(time: float):
+  $Area2D/LevelTimers.update_level_timer(time)
+
 func _on_start_button_pressed():
   player._on_start_button_pressed()
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwg86q7vc7tmt"]
+
+[ext_resource type="Script" uid="uid://byk36ocqkkgca" path="res://src/scenes/HUD/LevelTimers/LevelTimers.gd" id="1_ln23g"]
+[ext_resource type="PackedScene" uid="uid://dvj6rg2o084nn" path="res://src/scenes/HUD/LevelTimeTrophyGoal/LevelTimeTrophyGoal.tscn" id="1_ykae1"]
+[ext_resource type="Texture2D" uid="uid://cnjebeuw6or4q" path="res://src/assets/images/gold_trophy.png" id="3_ot3yr"]
+[ext_resource type="Texture2D" uid="uid://p5m6hbpexiqr" path="res://src/assets/images/silver_trophy.png" id="4_t2m8m"]
+[ext_resource type="Texture2D" uid="uid://xriapwhq0t8h" path="res://src/assets/images/bronze_trophy.png" id="5_a2k37"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2u40n"]
+font_size = 24
+
+[node name="LevelTimers" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ln23g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 218.0
+offset_bottom = 197.0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "<player_time>"
+label_settings = SubResource("LabelSettings_2u40n")
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LevelTimeTrophyGoal" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_ykae1")]
+layout_mode = 2
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal" index="0"]
+texture = ExtResource("3_ot3yr")
+
+[node name="LevelTimeTrophyGoal2" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_ykae1")]
+layout_mode = 2
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal2" index="0"]
+texture = ExtResource("4_t2m8m")
+
+[node name="LevelTimeTrophyGoal3" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("1_ykae1")]
+layout_mode = 2
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal3" index="0"]
+texture = ExtResource("5_a2k37")
+
+[editable path="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal"]
+[editable path="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal2"]
+[editable path="MarginContainer/VBoxContainer/VBoxContainer/LevelTimeTrophyGoal3"]

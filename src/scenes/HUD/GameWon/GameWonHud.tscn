@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cal3ft25jnj8w"]
+[gd_scene load_steps=7 format=3 uid="uid://cal3ft25jnj8w"]
 
 [ext_resource type="Script" uid="uid://ohy18py1nm5a" path="res://src/scenes/HUD/GameWon/gameWonHud.gd" id="1_rjbwr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q4ka5"]
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjbwr"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxwnp"]
+font_size = 24
 
 [sub_resource type="InputEventAction" id="InputEventAction_rxwnp"]
 action = &"ui_accept"
@@ -40,6 +46,23 @@ alignment = 1
 layout_mode = 2
 text = "Game Won!"
 label_settings = SubResource("LabelSettings_q4ka5")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Your time is"
+label_settings = SubResource("LabelSettings_rjbwr")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "<total_time>"
+label_settings = SubResource("LabelSettings_rxwnp")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
