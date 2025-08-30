@@ -17,6 +17,7 @@ extends Path2D
 var polygon2d: Polygon2D # Visuals inside the terrain
 var line2d: Line2D # Visuals for the edge of the terrain
 var collisionPolygon2d: CollisionPolygon2D # collisions for the inside of the terrain
+var lastCurveHash: int = 0 # Use for optimization (we dont want to bake every frame)
 
 func _ready() -> void:
   # Programmatically derive the scene tree
@@ -43,7 +44,23 @@ func _process(dt: float) -> void:
   if not Engine.is_editor_hint():
     set_process(false)
     return
-  _generate_terrain()
+    
+  var currentHash = _get_curve_hash()
+  if currentHash != lastCurveHash:
+    _generate_terrain()
+    lastCurveHash = currentHash
+
+#Optimization basically we dont want _generate_terrain called every framew thats slow
+# We only generate the terrain if the hash has changed (change in position and visible collision)
+func _get_curve_hash() -> int:
+  if !curve:
+    return 0
+  
+  var hash = curve.point_count
+  for i in curve.point_count:
+   var pos = curve.get_point_position(i)
+   hash = hash * 31 + int(pos.x * 1000) + int(pos.y * 1000) + int(visibleCollision)
+  return hash 
   
 func _generate_terrain():
   if !curve or curve.point_count == 0:

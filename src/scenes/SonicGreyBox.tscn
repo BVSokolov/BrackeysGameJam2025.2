@@ -1,41 +1,61 @@
-[gd_scene load_steps=8 format=3 uid="uid://i0rolxiohydi"]
+[gd_scene load_steps=13 format=3 uid="uid://i0rolxiohydi"]
 
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="1_0onui"]
 [ext_resource type="Script" uid="uid://brjaseygmtsb3" path="res://src/scenes/CurvedTerrainNode/curved_terrain_node.gd" id="2_o41vh"]
 [ext_resource type="Texture2D" uid="uid://bcwyuxh2xdpc2" path="res://src/assets/images/test-level-edge.svg" id="3_qi24e"]
 [ext_resource type="Texture2D" uid="uid://d05hkdbwq03n3" path="res://src/assets/images/test-level-terrain.svg" id="4_0vvis"]
+[ext_resource type="PackedScene" uid="uid://dqscxfigq44ha" path="res://src/scenes/Spring/Spring.tscn" id="5_0vvis"]
+[ext_resource type="PackedScene" uid="uid://dc8ecuevmwqet" path="res://src/scenes/Spikes/Spikes.tscn" id="6_a03jq"]
 
-[sub_resource type="Curve2D" id="Curve2D_vt2wj"]
-bake_interval = 24.44
+[sub_resource type="Curve2D" id="Curve2D_o41vh"]
 _data = {
-"points": PackedVector2Array(-7.78123, -70.0311, 7.78123, 70.0311, 184, 186, -46.9525, -5.18749, 46.9525, 5.18749, 432.198, 159, -47.5517, -106.707, 47.5517, 106.707, 803.408, 398, 25.1727, 7.595, -25.1727, -7.595, 659.47, 966, 0, 0, 0, 0, 336.555, 808, 114.125, 70.0311, -114.125, -70.0311, -104, 211, -29.4742, -25.9374, 29.4742, 25.9374, -179.168, 63.3679, -142.656, -101.156, 142.656, 101.156, -47, 50, -41.7551, -75.2186, 41.7551, 75.2186, 184, 186)
+"points": PackedVector2Array(0, 0, 0, 0, 568, 896, -403.916, -269.277, 403.916, 269.277, 952, 1408, 0, 0, 0, 0, 1856, 1736, 0, 0, 0, 0, -8, 1736, 0, 0, 0, 0, 0, 896)
 }
-point_count = 9
-
-[sub_resource type="Curve2D" id="Curve2D_qi24e"]
-bake_interval = 30.0
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1555, 146, 0, 0, 0, 0, 1737, 222, 0, 0, 0, 0, 1831, 354, 0, 0, 0, 0, 1844, 441, 0, 0, 0, 0, 1740, 683, 0, 0, 0, 0, 1574, 925, -182.28, -72.1525, 182.28, 72.1525, 1618, 1107, -163.198, -28.2459, 163.198, 28.2459, 2321, 1038, -15.6921, 109.845, 15.6921, -109.845, 2873, 683, -106.707, 21.969, 106.707, -21.969, 3124, 394, -12.5537, 84.7376, 12.5537, -84.7376, 3137, 37, 18.8306, 47.0764, -18.8306, -47.0764, 2826, -145, 150.645, 59.6302, -150.645, -59.6302, 1938, -265, 25.1074, -34.5227, -25.1074, 34.5227, 1471, -362, 0, 0, 0, 0, 1555, 146)
-}
-point_count = 15
+point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_0vvis"]
-bake_interval = 20.0
+bake_interval = 30.0
 _data = {
-"points": PackedVector2Array(-100.43, 40.7996, 100.43, -40.7996, -305, 879, -78.4607, -94.1529, 78.4607, 94.1529, 572, 1285, -84.7376, 6.27686, 84.7376, -6.27686, 887, 1040, -100.43, -84.7376, 100.43, 84.7376, 1430, 1059, 178.89, -119.26, -178.89, 119.26, 1590, 1639, 134.952, 34.5227, -134.952, -34.5227, 93, 1733, -229.105, 100.43, 229.105, -100.43, -434, 963)
+"points": PackedVector2Array(0, 0, 0, 0, 1792, 1104, -180.084, 42.4589, 180.084, -42.4589, 3392, 1102, -308.137, 191.159, 308.137, -191.159, 3904, 847, 0, 0, 0, 0, 4600, 255, 0, 0, 0, 0, 4992, 255, 0, 0, 0, 0, 4992, 1807, 0, 0, 0, 0, 1792, 1799, 0, 0, 0, 0, 1792, 1104)
 }
-point_count = 7
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_a03jq"]
+bake_interval = 70.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6144, 888, 0, 0, 0, 0, 7096, 888, -349.37, 0, 349.37, 0, 8144, 2368, 0, 0, 0, 0, 8840, 2048, 0, 0, 0, 0, 8832, 2672, 0, 0, 0, 0, 6144, 2664)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_16cxe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9640, 1776, -312.779, 0.786735, 312.779, -0.786735, 10664, 2816, 0, 0, 0, 0, 11704, 2552, 0, 0, 0, 0, 11704, 3168, 0, 0, 0, 0, 9648, 3168)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_mtk1j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 12784, 1912, 0, 0, 0, 0, 14640, 1912, 0, 0, 0, 0, 14632, 4256, 0, 0, 0, 0, 12784, 4256, 0, 0, 0, 0, 12784, 1912)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ypyil"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 12992, 1144, 0, 0, 0, 0, 14848, 1144, 0, 0, 0, 0, 14840, 64, 0, 0, 0, 0, 12992, 72)
+}
+point_count = 4
 
 [node name="SonicGreyBox" type="Node2D"]
 
+[node name="Spring" parent="." instance=ExtResource("5_0vvis")]
+position = Vector2(2680, 1744)
+
 [node name="Player" parent="." instance=ExtResource("1_0onui")]
-position = Vector2(56, -276)
+position = Vector2(64, 624)
 
 [node name="CurvedTerrainNode" type="Path2D" parent="."]
-texture_filter = 2
-position = Vector2(-30, -38)
-scale = Vector2(2.11201, 1)
-curve = SubResource("Curve2D_vt2wj")
+position = Vector2(9, 0)
+curve = SubResource("Curve2D_o41vh")
 script = ExtResource("2_o41vh")
 edgeTexture = ExtResource("3_qi24e")
 centerTexture = ExtResource("4_0vvis")
@@ -44,23 +64,10 @@ staticBodyCollisionLayer = 2
 staticBodyCollisionMask = 1
 metadata/_custom_type_script = "uid://brjaseygmtsb3"
 metadata/_edit_group_ = true
-
-[node name="CurvedTerrainNode2" type="Path2D" parent="."]
-texture_filter = 2
-position = Vector2(79, -25)
-curve = SubResource("Curve2D_qi24e")
-script = ExtResource("2_o41vh")
-edgeTexture = ExtResource("3_qi24e")
-centerTexture = ExtResource("4_0vvis")
-visibleCollision = false
-staticBodyCollisionLayer = 2
-staticBodyCollisionMask = 1
-metadata/_custom_type_script = "uid://brjaseygmtsb3"
-metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CurvedTerrainNode3" type="Path2D" parent="."]
-texture_filter = 2
-position = Vector2(-23, 61)
+position = Vector2(64, 628)
 curve = SubResource("Curve2D_0vvis")
 script = ExtResource("2_o41vh")
 edgeTexture = ExtResource("3_qi24e")
@@ -69,11 +76,12 @@ visibleCollision = false
 staticBodyCollisionLayer = 2
 staticBodyCollisionMask = 1
 metadata/_custom_type_script = "uid://brjaseygmtsb3"
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CurvedTerrainNode4" type="Path2D" parent="."]
-texture_filter = 2
-position = Vector2(211, 1708)
-curve = SubResource("Curve2D_qi24e")
+position = Vector2(-264, 0)
+curve = SubResource("Curve2D_a03jq")
 script = ExtResource("2_o41vh")
 edgeTexture = ExtResource("3_qi24e")
 centerTexture = ExtResource("4_0vvis")
@@ -82,3 +90,41 @@ staticBodyCollisionLayer = 2
 staticBodyCollisionMask = 1
 metadata/_custom_type_script = "uid://brjaseygmtsb3"
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CurvedTerrainNode5" type="Path2D" parent="."]
+position = Vector2(848, 208)
+curve = SubResource("Curve2D_16cxe")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+metadata/_edit_group_ = true
+
+[node name="CurvedTerrainNode6" type="Path2D" parent="."]
+position = Vector2(720, 784)
+curve = SubResource("Curve2D_mtk1j")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+
+[node name="CurvedTerrainNode7" type="Path2D" parent="."]
+position = Vector2(528, 1208)
+curve = SubResource("Curve2D_ypyil")
+script = ExtResource("2_o41vh")
+edgeTexture = ExtResource("3_qi24e")
+centerTexture = ExtResource("4_0vvis")
+visibleCollision = false
+staticBodyCollisionLayer = 2
+staticBodyCollisionMask = 1
+metadata/_custom_type_script = "uid://brjaseygmtsb3"
+
+[node name="Spikes" parent="." instance=ExtResource("6_a03jq")]
+position = Vector2(2912, 1736)

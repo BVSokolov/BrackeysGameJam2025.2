@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqscxfigq44ha"]
+
+[ext_resource type="Script" uid="uid://odblpchhgytf" path="res://src/scenes/Spring/spring.gd" id="1_hgrol"]
+[ext_resource type="Texture2D" uid="uid://dtm0kgs0qhjh4" path="res://src/assets/images/spring-bounce.svg" id="2_y1n7b"]
+[ext_resource type="Texture2D" uid="uid://bup4eeunxtaft" path="res://src/assets/images/spring-idle.svg" id="3_cpi54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lysdl"]
+atlas = ExtResource("2_y1n7b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m4ov"]
+atlas = ExtResource("2_y1n7b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k58oi"]
+atlas = ExtResource("2_y1n7b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7ngp"]
+atlas = ExtResource("2_y1n7b")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgn1h"]
+atlas = ExtResource("2_y1n7b")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvrp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lysdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m4ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k58oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7ngp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgn1h")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cpi54")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbvft"]
+size = Vector2(48, 8)
+
+[node name="Spring" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_hgrol")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_lvrp7")
+animation = &"bounce"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_fbvft")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
