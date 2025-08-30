@@ -33,7 +33,7 @@ func game_won():
   get_tree().paused = true
 
 func load_level(is_new_level: bool):
-  if (current_level == levels.size() - 2):
+  if (current_level == levels.size()):
     game_won()
     return
 
