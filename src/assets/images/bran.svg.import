@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj3clww4qgk6v"
-path="res://.godot/imported/bran.svg-eabf837822221945845d7b1f4cc5209e.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://src/assets/images/bran.svg"
-dest_files=["res://.godot/imported/bran.svg-eabf837822221945845d7b1f4cc5209e.ctex"]
 
 [params]
 

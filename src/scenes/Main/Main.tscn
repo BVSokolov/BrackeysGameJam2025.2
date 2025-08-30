@@ -52,6 +52,7 @@ levels = Array[ExtResource("2_bb7lw")]([SubResource("Resource_4lipg"), SubResour
 process_mode = 1
 
 [node name="StartButton" type="Button" parent="."]
+z_index = 50
 offset_left = -50.0
 offset_top = -89.0
 offset_right = 46.0
