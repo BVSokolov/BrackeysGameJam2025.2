@@ -74,8 +74,4 @@ button_mask = 0
 shortcut = SubResource("Shortcut_roh6a")
 text = "Press Enter to play again"
 
-[node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Press Esc to quit"
-
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Button" to="." method="_on_button_new_game_pressed"]

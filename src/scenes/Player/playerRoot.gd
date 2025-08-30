@@ -9,6 +9,7 @@ func _ready() -> void:
   player.groundCollider = $Area2D
 
 func level_init(pos: Vector2):
+  $HoDSprite2D/AnimationPlayer.stop()
   player.level_init(pos)
 
 func reset_pos(pos: Vector2):

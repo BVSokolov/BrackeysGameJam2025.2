@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://n8tvkj6sdd3i"]
+[gd_scene load_steps=15 format=3 uid="uid://n8tvkj6sdd3i"]
 
 [ext_resource type="Script" uid="uid://ctab5fbwy13io" path="res://src/scenes/Main/main.gd" id="1_mqhj8"]
 [ext_resource type="PackedScene" uid="uid://lcts66k4u6q4" path="res://src/scenes/Player/Player.tscn" id="2_3ioa8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cal3ft25jnj8w" path="res://src/scenes/HUD/GameWon/GameWonHud.tscn" id="5_bb7lw"]
 [ext_resource type="PackedScene" uid="uid://bk16o0khk06st" path="res://src/scenes/Level_2/Level_2.tscn" id="5_kl3ao"]
 [ext_resource type="PackedScene" uid="uid://6rapu0febxq5" path="res://src/scenes/HUD/LevelComplete/LevelComplete.tscn" id="6_4lipg"]
+[ext_resource type="PackedScene" uid="uid://cu72eap8xhlh3" path="res://src/scenes/HUD/GamePaused/GamePaused.tscn" id="9_kl3ao"]
 
 [sub_resource type="Resource" id="Resource_4lipg"]
 script = ExtResource("2_bb7lw")
@@ -43,10 +44,12 @@ action = &"ui_accept"
 events = [SubResource("InputEventAction_5llug")]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_mqhj8")
 levels = Array[ExtResource("2_bb7lw")]([SubResource("Resource_4lipg"), SubResource("Resource_aywe8"), SubResource("Resource_mkmfn")])
 
 [node name="Player" parent="." instance=ExtResource("2_3ioa8")]
+process_mode = 1
 
 [node name="StartButton" type="Button" parent="."]
 offset_left = -50.0
@@ -59,6 +62,7 @@ text = "Press Enter"
 flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 2
 anchor_mode = 0
 
 [node name="UI" type="CanvasLayer" parent="Camera2D"]
@@ -67,8 +71,12 @@ anchor_mode = 0
 
 [node name="LevelComplete" parent="Camera2D/UI" instance=ExtResource("6_4lipg")]
 
+[node name="GamePaused" parent="Camera2D/UI" instance=ExtResource("9_kl3ao")]
+
 [connection signal="player_death_animation_finished" from="Player" to="." method="_on_player_death_animation_finished"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="start_new_game" from="Camera2D/UI/GameWonHUD" to="." method="_on_game_won_hud_start_new_game"]
 [connection signal="continue_button_pressed" from="Camera2D/UI/LevelComplete" to="." method="_on_level_complete_continue_button_pressed"]
 [connection signal="retry_button_pressed" from="Camera2D/UI/LevelComplete" to="." method="_on_level_complete_retry_button_pressed"]
+[connection signal="button_continue_pressed" from="Camera2D/UI/GamePaused" to="." method="_on_game_paused_button_continue_pressed"]
+[connection signal="button_restart_level_pressed" from="Camera2D/UI/GamePaused" to="." method="_on_game_paused_button_restart_level_pressed"]

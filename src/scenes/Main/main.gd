@@ -18,19 +18,24 @@ func reset_player(isInnit: bool):
   else:
     $Player.reset_pos(pos)
 
-func load_level():
+func level_setup(levelInfo: LevelInfo):
+  levelScene = levelInfo.resource.instantiate()
+  add_child(levelScene)
+  levelScene.player_entered_level_death_zone.connect(_on_player_entered_death_zone)
+  levelScene.level_complete.connect(_on_level_complete)
+
+func load_level(is_new_level: bool):
   if (current_level == levels.size()):
     game_won()
     return
 
   var levelInfo = levels[current_level]
-
+  if is_new_level:
+    level_setup(levelInfo)
+  
   $Player.show()
-  levelScene = levelInfo.resource.instantiate()
   level_is_completed = false
-  add_child(levelScene)
-  levelScene.player_entered_level_death_zone.connect(_on_player_entered_death_zone)
-  levelScene.level_complete.connect(_on_level_complete)
+
   reset_player(true)
   $StartButton.set("disabled", false)
 
@@ -44,13 +49,20 @@ func start_new_game():
   current_level = 0
   $Camera2D/UI/GameWonHUD.hide()
   $Camera2D/UI/LevelComplete.hide()
+  $Camera2D/UI/GamePaused.hide()
   $StartButton.show()
-  load_level()
+  get_tree().paused = false
+  call_deferred('load_level', true)
+
 
 func _ready() -> void:
   start_new_game()
 
 func _process(delta: float) -> void:
+  if Input.is_action_just_pressed('ui_cancel'):
+    get_tree().paused = !get_tree().paused
+    $Camera2D/UI/GamePaused.set('visible', !$Camera2D/UI/GamePaused.is_visible())
+
   if start_button_pressed and not level_is_completed:
     level_timer += delta
     $Player.update_timer(level_timer)
@@ -63,8 +75,7 @@ func _on_player_death_animation_finished():
   reset_player(false)
 
 func _on_start_button_pressed() -> void:
-  $StartButton.set("disabled", false)
-
+  $StartButton.set("disabled", true)
   start_button_pressed = true
   $Player._on_start_button_pressed()
 
@@ -75,6 +86,7 @@ func game_won():
   $Camera2D/UI/GameWonHUD.show_game_won(total_time)
   $StartButton.hide()
   $Camera2D.make_current()
+  get_tree().paused = true
 
 func _on_level_complete():
   # pause the level timer
@@ -82,17 +94,31 @@ func _on_level_complete():
   # show level complete ui
   $Camera2D/UI/LevelComplete.show_level_complete(level_timer)
   total_time += level_timer
+  get_tree().paused = true
 
 func _on_level_complete_retry_button_pressed() -> void:
   $Camera2D/UI/LevelComplete.hide()
-  load_level()
+  get_tree().paused = false
+  call_deferred('load_level', false)
 
 func _on_level_complete_continue_button_pressed() -> void:
-  $Camera2D/UI/LevelComplete.hide()
-  levelScene.call_deferred('queue_free')
   current_level += 1
-  call_deferred('load_level')
+  $Camera2D/UI/LevelComplete.hide()
+  get_tree().paused = false
+  
+  levelScene.call_deferred('queue_free')
+  call_deferred('load_level', true)
 
 
 func _on_game_won_hud_start_new_game() -> void:
     start_new_game()
+
+
+func _on_game_paused_button_continue_pressed() -> void:
+  $Camera2D/UI/GamePaused.hide()
+  get_tree().paused = false
+
+func _on_game_paused_button_restart_level_pressed() -> void:
+  $Camera2D/UI/GamePaused.hide()
+  get_tree().paused = false
+  call_deferred('load_level', false)

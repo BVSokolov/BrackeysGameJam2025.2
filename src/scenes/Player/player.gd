@@ -31,31 +31,42 @@ func _physics_process(dt: float) -> void:
   process_move(dt)
 
 func level_init(pos: Vector2):
-  set_deferred('freeze', true)
   global_position = pos
+  set_deferred('freeze', true)
+  set_physics_process(false)
   $Camera2D.make_current()
+  # get_tree().paused = true
+
   # linear_velocity = Vector2.ZERO
   # gravity_scale = 0
 
 func reset_pos(pos: Vector2):
-  set_deferred('freeze', false)
-
+  # get_tree().paused = false
   PhysicsServer2D.body_set_state(
     get_rid(),
     PhysicsServer2D.BODY_STATE_TRANSFORM,
     Transform2D.IDENTITY.translated(pos)
   )
   linear_velocity = Vector2.ZERO
+  set_physics_process(true)
+  set_deferred('freeze', false)
   # gravity_scale = 0
 
 func _on_start_button_pressed():
   # set_freeze_enabled(false)
+  # get_tree().paused = false
+  set_physics_process(true)
   set_deferred('freeze', false)
   # gravity_scale = 1
 
 func game_won():
-  set_deferred('freeze', true)
+  # set_deferred('freeze', true)
+  # get_tree().paused = true
+  set_physics_process(false)
+
 
 func kill_player():
-  set_deferred('freeze', true)
   rotation = 0
+  set_deferred('freeze', true)
+  set_physics_process(false)
+  # get_tree().paused = true
