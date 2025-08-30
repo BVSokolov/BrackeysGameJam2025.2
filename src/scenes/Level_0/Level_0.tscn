@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://dii3527gneijh"]
+[gd_scene load_steps=10 format=4 uid="uid://dii3527gneijh"]
 
 [ext_resource type="Script" uid="uid://cyqghsbcpsxd0" path="res://src/scripts/level/level.gd" id="1_o1n0q"]
 [ext_resource type="TileSet" uid="uid://gbxwj2f7pmon" path="res://src/resources/TileMapLayer.tres" id="1_xv8l3"]
 [ext_resource type="PackedScene" uid="uid://bijdjrc81d3au" path="res://src/scenes/FinishArea/FinishArea.tscn" id="2_8cerr"]
 [ext_resource type="PackedScene" uid="uid://lfdxant4ulby" path="res://src/scenes/MarkerStart/MarkerStart.tscn" id="3_jyyny"]
 [ext_resource type="PackedScene" uid="uid://bcda1rv4kc57" path="res://src/scenes/DeathZone/DeathZone.tscn" id="3_rp8sf"]
+[ext_resource type="PackedScene" uid="uid://d3vpqlfu5kpq3" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollision.tscn" id="3_v22dm"]
+[ext_resource type="PhysicsMaterial" uid="uid://o32qvk26lawu" path="res://src/resources/GroundPhysicsLayer.tres" id="4_2lu1i"]
+[ext_resource type="PackedScene" uid="uid://c8y882x446654" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollisionEven.tscn" id="4_172wg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rp8sf"]
 font_size = 24
@@ -13,8 +16,23 @@ font_size = 24
 script = ExtResource("1_o1n0q")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAbAAAAAQAAAAAAAAAcAAAAAQAAAAAAAAAdAAAAAQAAAAAAAAAeAAAAAQAAAAAAAAAfAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAQAP7/AQAAAAAAAAASAP3/AQAAAAAAAAAfAP//AQAAAAAAAAAfAP7/AQAAAAAAAAAfAP3/AQAAAAAAAAAfAPz/AQAAAAAAAAAfAPv/AQAAAAAAAAAfAPr/AQAAAAAAAAAfAPn/AQAAAAAAAAAfAPj/AQAAAAAAAAAfAPf/AQAAAAAAAAAfAPb/AQAAAAAAAAAfAPX/AQAAAAAAAADq//X/AQAAAAAAAADq//b/AQAAAAAAAADq//f/AQAAAAAAAADq//j/AQAAAAAAAADq//n/AQAAAAAAAADq//r/AQAAAAAAAADq//v/AQAAAAAAAADq//z/AQAAAAAAAADq//3/AQAAAAAAAADq//7/AQAAAAAAAADq////AQAAAAAAAADq/wAAAQAAAAAAAAAEAP//AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAAAAQAEAAAAAAACAAAAAQAEAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAEAAAAAAAFAAAAAQAEAAAAAAAGAAAAAQAEAAAAAAAHAAAAAQAEAAAAAAANAAAAAQAEAAAAAAAOAAAAAQAEAAAAAAAQAAAAAQAEAAAAAAAVAAAAAQAEAAAAAAAWAAAAAQAEAAAAAAAXAAAAAQAEAAAAAAAYAAAAAQAEAAAAAAAZAAAAAQAEAAAAAAAaAAAAAQAEAAAAAAAbAAAAAQAEAAAAAAAcAAAAAQAEAAAAAAAdAAAAAQAEAAAAAAAeAAAAAQAEAAAAAAAfAAAAAQAEAAAAAAAIAAAAAQAEAAAAAAAPAP//AQAAAAAAAAAQAP7/AQAAAAAAAAASAP3/AQAAAAAAAAAfAP//AQAAAAAAAAAfAP7/AQAAAAAAAAAfAP3/AQAAAAAAAAAfAPz/AQAAAAAAAAAfAPv/AQAAAAAAAAAfAPr/AQAAAAAAAAAfAPn/AQAAAAAAAAAfAPj/AQAAAAAAAAAfAPf/AQAAAAAAAAAfAPb/AQAAAAAAAAAfAPX/AQAAAAAAAADq//X/AQAAAAAAAADq//b/AQAAAAAAAADq//f/AQAAAAAAAADq//j/AQAAAAAAAADq//n/AQAAAAAAAADq//r/AQAAAAAAAADq//v/AQAAAAAAAADq//z/AQAAAAAAAADq//3/AQAAAAAAAADq//7/AQAAAAAAAADq////AQAAAAAAAADq/wAAAQAAAAAAAAAEAP//AQAAAAAAAAAPAAAAAQAEAAAAAAAAAAAAAQAEAAAAAAA=")
 tile_set = ExtResource("1_xv8l3")
+
+[node name="GroudTileGroupCollision" parent="TileMapLayer" instance=ExtResource("3_v22dm")]
+position = Vector2(288, 32)
+scale = Vector2(9, 1.004)
+physics_material_override = ExtResource("4_2lu1i")
+
+[node name="GroudTileGroupCollision2" parent="TileMapLayer" instance=ExtResource("4_172wg")]
+position = Vector2(896, 32)
+scale = Vector2(2, 1)
+physics_material_override = ExtResource("4_2lu1i")
+
+[node name="GroudTileGroupCollision3" parent="TileMapLayer" instance=ExtResource("3_v22dm")]
+position = Vector2(1696, 32)
+scale = Vector2(11, 1)
+physics_material_override = ExtResource("4_2lu1i")
 
 [node name="MarkerStart" parent="." instance=ExtResource("3_jyyny")]
 position = Vector2(53, -68)

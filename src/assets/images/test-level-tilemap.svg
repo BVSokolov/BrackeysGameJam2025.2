@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="256"
+   width="320"
    height="64"
-   viewBox="0 0 67.733332 16.933333"
+   viewBox="0 0 84.666665 16.933333"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="test-level-tilemap.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="7.8983789"
-     inkscape:cx="162.05857"
-     inkscape:cy="33.931014"
-     inkscape:window-width="1920"
-     inkscape:window-height="1008"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="3.9491895"
+     inkscape:cx="171.04776"
+     inkscape:cy="40.641251"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -40,7 +40,8 @@
        spacingy="2.1166666"
        empspacing="8"
        originx="0"
-       originy="0" />
+       originy="0"
+       units="px" />
   </sodipodi:namedview>
   <defs
      id="defs2" />
@@ -120,5 +121,114 @@
        y="8.9190671e-08"
        rx="1.174986e-16"
        ry="1.174986e-16" />
+    <rect
+       style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+       id="rect3"
+       width="2.2108967"
+       height="2.2778935"
+       x="14.538321"
+       y="-15.208289" />
+    <g
+       id="g27"
+       transform="translate(-2.645834,-2.1166665)">
+      <rect
+         style="fill:#673b09;fill-opacity:1;stroke-width:1.5875;paint-order:stroke fill markers"
+         id="rect290-5"
+         width="16.933332"
+         height="16.933332"
+         x="70.379166"
+         y="2.1166666"
+         rx="1.174986e-16"
+         ry="1.174986e-16" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect14"
+         width="2.2108967"
+         height="2.2778935"
+         x="72.44104"
+         y="15.551134"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect15"
+         width="2.2108967"
+         height="2.2778935"
+         x="72.788818"
+         y="10.010196"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect16"
+         width="2.2108967"
+         height="2.2778935"
+         x="71.861755"
+         y="5.401782"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect19"
+         width="2.2108967"
+         height="2.2778935"
+         x="75.611404"
+         y="15.252604"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect20"
+         width="2.2108967"
+         height="2.2778935"
+         x="75.338638"
+         y="4.0858159"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect21"
+         width="2.2108967"
+         height="2.2778935"
+         x="80.196022"
+         y="13.764143"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect22"
+         width="2.2108967"
+         height="2.2778935"
+         x="83.712471"
+         y="15.411094"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect25"
+         width="2.2108967"
+         height="2.2778935"
+         x="81.243149"
+         y="4.2382393"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#1f7334;fill-opacity:1;stroke-width:1.5875;paint-order:stroke fill markers"
+         id="rect292-1"
+         width="16.933332"
+         height="4.2333331"
+         x="70.379166"
+         y="2.1166666"
+         rx="1.174986e-16"
+         ry="1.174986e-16" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect26"
+         width="2.2108967"
+         height="2.2778935"
+         x="81.04763"
+         y="9.827116"
+         inkscape:spray-origin="#rect3" />
+      <rect
+         style="fill:#412300;fill-opacity:1;stroke-width:1.05833"
+         id="rect27"
+         width="2.2108967"
+         height="2.2778935"
+         x="77.190247"
+         y="11.893559"
+         inkscape:spray-origin="#rect3" />
+    </g>
   </g>
 </svg>

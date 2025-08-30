@@ -1,17 +1,63 @@
-[gd_scene load_steps=6 format=4 uid="uid://tux8olgr24hu"]
+[gd_scene load_steps=10 format=4 uid="uid://tux8olgr24hu"]
 
 [ext_resource type="TileSet" uid="uid://gbxwj2f7pmon" path="res://src/resources/TileMapLayer.tres" id="1_5k248"]
 [ext_resource type="Script" uid="uid://cyqghsbcpsxd0" path="res://src/scripts/level/level.gd" id="1_xif7h"]
 [ext_resource type="PackedScene" uid="uid://bcda1rv4kc57" path="res://src/scenes/DeathZone/DeathZone.tscn" id="2_8ehf1"]
+[ext_resource type="PackedScene" uid="uid://c8y882x446654" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollisionEven.tscn" id="3_ioxno"]
 [ext_resource type="PackedScene" uid="uid://bijdjrc81d3au" path="res://src/scenes/FinishArea/FinishArea.tscn" id="3_xif7h"]
+[ext_resource type="PhysicsMaterial" uid="uid://o32qvk26lawu" path="res://src/resources/GroundPhysicsLayer.tres" id="4_0b703"]
 [ext_resource type="PackedScene" uid="uid://lfdxant4ulby" path="res://src/scenes/MarkerStart/MarkerStart.tscn" id="4_5dufl"]
+[ext_resource type="PackedScene" uid="uid://d3vpqlfu5kpq3" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollision.tscn" id="5_6l4cu"]
+[ext_resource type="PhysicsMaterial" uid="uid://coqhdbac5bivx" path="res://src/resources/IcePhysicsLayer.tres" id="6_v5sdh"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_xif7h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQACAAAAAAAHAAAAAQACAAAAAAAIAAAAAQACAAAAAAALAAAAAQACAAAAAAAMAAAAAQACAAAAAAANAAAAAQACAAAAAAAPAAAAAQAAAAAAAAAOAAIAAQAAAAAAAAAPAAIAAQAAAAAAAAAQAAIAAQAAAAAAAAARAAIAAQAAAAAAAAAPAP//AQAAAAAAAAAQAAAAAQAAAAAAAAATAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAP3/AQAAAAAAAAAUAP3/AQAAAAAAAAAVAP3/AQAAAAAAAAAVAP7/AQAAAAAAAAAVAP//AQAAAAAAAAAVAAAAAQAAAAAAAAAVAAEAAQAAAAAAAAAOAP7/AQAAAAAAAAANAP3/AQAAAAAAAAAMAP3/AQAAAAAAAAASAP3/AQAAAAAAAAARAP3/AQAAAAAAAAALAPz/AQAAAAAAAAALAPv/AQAAAAAAAAALAPr/AQAAAAAAAAALAPn/AQAAAAAAAAALAPj/AQAAAAAAAAAZAAEAAQAAAAAAAAAZAP//AQACAAAAAAAaAP//AQACAAAAAAAbAP//AQACAAAAAAAdAAEAAQACAAAAAAAgAAEAAQAAAAAAAAAgAAAAAQAAAAAAAAAgAP//AQAAAAAAAAAgAP7/AQAAAAAAAAAgAP3/AQAAAAAAAAAgAPz/AQAAAAAAAAAgAPv/AQAAAAAAAAAgAPr/AQAAAAAAAAAgAPn/AQAAAAAAAAAgAPj/AQAAAAAAAAAgAPf/AQAAAAAAAAAgAPb/AQAAAAAAAAAbAAIAAQACAAAAAAAZAAcAAQAAAAAAAAATAAsAAQAAAAAAAAAUAAoAAQAAAAAAAAAVAAcAAQAAAAAAAAAVAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAXAAoAAQAAAAAAAAAYAAoAAQAAAAAAAAAZAAgAAQACAAAAAAAZAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAbAAsAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAEAAAAAAABAAAAAQAEAAAAAAACAAAAAQAEAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAEAAAAAAAFAAAAAQAEAAAAAAAGAAAAAQACAAAAAAAHAAAAAQACAAAAAAAIAAAAAQACAAAAAAALAAAAAQACAAAAAAAMAAAAAQACAAAAAAANAAAAAQACAAAAAAAPAAAAAQAAAAAAAAAOAAIAAQAEAAAAAAAPAAIAAQAEAAAAAAAQAAIAAQAEAAAAAAARAAIAAQAEAAAAAAAPAP//AQAAAAAAAAAQAAAAAQAAAAAAAAATAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAP3/AQAEAAAAAAAUAP3/AQAEAAAAAAAVAP3/AQAEAAAAAAAVAP7/AQAAAAAAAAAVAP//AQAAAAAAAAAVAAAAAQAAAAAAAAAVAAEAAQAAAAAAAAAOAP7/AQAAAAAAAAANAP3/AQAEAAAAAAAMAP3/AQAEAAAAAAASAP3/AQAEAAAAAAARAP3/AQAEAAAAAAALAPz/AQAAAAAAAAALAPv/AQAAAAAAAAALAPr/AQAAAAAAAAALAPn/AQAAAAAAAAALAPj/AQAAAAAAAAAZAAEAAQAAAAAAAAAZAP//AQACAAAAAAAaAP//AQACAAAAAAAbAP//AQACAAAAAAAdAAEAAQACAAAAAAAgAAEAAQAAAAAAAAAgAAAAAQAAAAAAAAAgAP//AQAAAAAAAAAgAP7/AQAAAAAAAAAgAP3/AQAAAAAAAAAgAPz/AQAAAAAAAAAgAPv/AQAAAAAAAAAgAPr/AQAAAAAAAAAgAPn/AQAAAAAAAAAgAPj/AQAAAAAAAAAgAPf/AQAAAAAAAAAgAPb/AQAAAAAAAAAbAAIAAQACAAAAAAAZAAcAAQAAAAAAAAATAAsAAQAAAAAAAAAUAAoAAQAAAAAAAAAVAAcAAQAAAAAAAAAVAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAXAAoAAQAAAAAAAAAYAAoAAQAAAAAAAAAZAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAbAAsAAQAAAAAAAAAZAAgAAQACAAAAAAA=")
 tile_set = ExtResource("1_5k248")
+
+[node name="GroudTileGroupCollisionEven" parent="TileMapLayer" instance=ExtResource("3_ioxno")]
+position = Vector2(96, 32)
+scale = Vector2(3, 1)
+physics_material_override = ExtResource("4_0b703")
+
+[node name="GroudTileGroupCollision" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(480, 32)
+scale = Vector2(3, 1)
+physics_material_override = ExtResource("6_v5sdh")
+
+[node name="GroudTileGroupCollision2" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(800, 32)
+scale = Vector2(3, 1)
+physics_material_override = ExtResource("6_v5sdh")
+
+[node name="GroudTileGroupCollisionEven2" parent="TileMapLayer" instance=ExtResource("3_ioxno")]
+position = Vector2(960, 160)
+scale = Vector2(2, 1)
+physics_material_override = ExtResource("4_0b703")
+
+[node name="GroudTileGroupCollisionEven3" parent="TileMapLayer" instance=ExtResource("3_ioxno")]
+position = Vector2(800, -160)
+physics_material_override = ExtResource("4_0b703")
+
+[node name="GroudTileGroupCollision3" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(1248, -160)
+scale = Vector2(5, 1)
+physics_material_override = ExtResource("4_0b703")
+
+[node name="GroudTileGroupCollision4" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(1696, -32)
+scale = Vector2(3, 1)
+physics_material_override = ExtResource("6_v5sdh")
+
+[node name="GroudTileGroupCollision5" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(1888, 96)
+physics_material_override = ExtResource("6_v5sdh")
+
+[node name="GroudTileGroupCollision6" parent="TileMapLayer" instance=ExtResource("5_6l4cu")]
+position = Vector2(1760, 160)
+physics_material_override = ExtResource("6_v5sdh")
 
 [node name="DeathZone" parent="." instance=ExtResource("2_8ehf1")]
 position = Vector2(0, 1004)
