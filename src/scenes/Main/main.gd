@@ -1,8 +1,11 @@
 extends Node2D
 
 @export var levels: Array[LevelInfo]
+@export var music: Array[AudioStream]
+
 var current_level
 var levelScene: Level
+var current_track
 
 var total_time: float
 var level_timer: float
@@ -51,12 +54,14 @@ func load_level(is_new_level: bool):
 func start_new_game():
   total_time = 0.0
   current_level = 0
+  current_track = 0
   $Camera2D/UI/GameWonHUD.hide()
   $Camera2D/UI/LevelComplete.hide()
   $Camera2D/UI/GamePaused.hide()
   $StartButton.show()
   get_tree().paused = false
   call_deferred('load_level', true)
+  call_deferred("start_music_player")
 
 
 func _ready() -> void:
@@ -107,7 +112,16 @@ func _on_level_complete_continue_button_pressed() -> void:
   on_game_menu_button_pressed($Camera2D/UI/LevelComplete)
   levelScene.call_deferred('queue_free')
   call_deferred('load_level', true)
+  call_deferred("switch_track")
 
+func switch_track():
+  $MusicPlayer.stop()
+  current_track = current_track + 1 % music.size()
+  start_music_player()
+
+func start_music_player():
+  $MusicPlayer.stream = music[current_track]
+  $MusicPlayer.play()
 
 func _on_game_paused_button_continue_pressed() -> void:
   on_game_menu_button_pressed($Camera2D/UI/GamePaused)

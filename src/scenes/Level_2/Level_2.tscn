@@ -8,7 +8,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://o32qvk26lawu" path="res://src/resources/GroundPhysicsLayer.tres" id="4_pqvcx"]
 [ext_resource type="PackedScene" uid="uid://lfdxant4ulby" path="res://src/scenes/MarkerStart/MarkerStart.tscn" id="5_0ihjf"]
 [ext_resource type="PackedScene" uid="uid://d3vpqlfu5kpq3" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollision.tscn" id="5_nfcqy"]
-[ext_resource type="PhysicsMaterial" path="res://src/resources/IcePhysicsLayer.tres" id="6_gx3cd"]
+[ext_resource type="PhysicsMaterial" uid="uid://coqhdbac5bivx" path="res://src/resources/IcePhysicsLayer.tres" id="6_gx3cd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqvcx"]
 texture = ExtResource("2_8gd8s")
@@ -106,6 +106,8 @@ position = Vector2(315, -224)
 
 [node name="MarkerStart" parent="." instance=ExtResource("5_0ihjf")]
 position = Vector2(0, -192)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="player_entered_death_zone" from="DeathZone" to="." method="_on_player_entered_death_zone"]
 [connection signal="player_entered_finish_area" from="FinishArea" to="." method="_on_player_entered_finish_area"]

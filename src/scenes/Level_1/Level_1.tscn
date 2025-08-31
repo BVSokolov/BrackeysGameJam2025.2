@@ -8,7 +8,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://o32qvk26lawu" path="res://src/resources/GroundPhysicsLayer.tres" id="4_0b703"]
 [ext_resource type="PackedScene" uid="uid://lfdxant4ulby" path="res://src/scenes/MarkerStart/MarkerStart.tscn" id="4_5dufl"]
 [ext_resource type="PackedScene" uid="uid://d3vpqlfu5kpq3" path="res://src/scenes/GroudTileGroup/GroudTileGroupCollision.tscn" id="5_6l4cu"]
-[ext_resource type="PhysicsMaterial" path="res://src/resources/IcePhysicsLayer.tres" id="6_v5sdh"]
+[ext_resource type="PhysicsMaterial" uid="uid://coqhdbac5bivx" path="res://src/resources/IcePhysicsLayer.tres" id="6_v5sdh"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_xif7h")
@@ -67,7 +67,7 @@ scale = Vector2(33.76, 1)
 position = Vector2(1630, 32)
 
 [node name="MarkerStart" parent="." instance=ExtResource("4_5dufl")]
-position = Vector2(84, -110)
+position = Vector2(56, -88)
 
 [connection signal="player_entered_death_zone" from="DeathZone" to="." method="_on_player_entered_death_zone"]
 [connection signal="player_entered_finish_area" from="FinishArea" to="." method="_on_player_entered_finish_area"]
