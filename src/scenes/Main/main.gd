@@ -65,6 +65,7 @@ func start_new_game():
 
 
 func _ready() -> void:
+  $Player/RigidBody2D.add_child($MusicPlayer)
   start_new_game()
 
 func _process(delta: float) -> void:
