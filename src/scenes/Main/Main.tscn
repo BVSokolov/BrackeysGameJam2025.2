@@ -78,7 +78,7 @@ process_mode = 2
 [node name="GamePaused" parent="Camera2D/UI" instance=ExtResource("9_kl3ao")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
-volume_db = -20.543
+volume_db = -0.543
 max_distance = 4096.0
 
 [connection signal="player_death_animation_finished" from="Player" to="." method="_on_player_death_animation_finished"]
